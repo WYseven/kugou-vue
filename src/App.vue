@@ -1,6 +1,16 @@
 <template>
   <div id="app">
-    hello
+    <mt-header fixed class="kugou-header">
+        <router-link class="logo" to="/" slot="left">
+            <img src="http://m.kugou.com/v3/static/images/index/logo.png" />
+        </router-link>
+        <mt-button @click="gotoSearch" icon="search" slot="right"></mt-button>
+    </mt-header>
+    <router-view class="navbar" name="navBar"></router-view>
+    <div class="content">
+        <mt-spinner v-show="$store.state.isLoading" type="triple-bounce"></mt-spinner>
+        <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -15,7 +25,7 @@ export default {
       }
   },
   created(){
-      console.log(this.$store)
+      
   }
 }
 </script>

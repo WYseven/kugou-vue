@@ -13,7 +13,7 @@ module.exports = merge(base, {
     libraryTarget: 'commonjs2'
   },
   externals: [webpackNodeExternals({
-    whitelist: /\.css$/
+    //whitelist: /\.css$/
   })],
   plugins: [
     new webpack.DefinePlugin({

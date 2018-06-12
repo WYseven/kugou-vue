@@ -15,17 +15,25 @@ import {getNewSongs} from '@/server'
 import songList from '@/views/common/song-list/song-list'
 
 export default {
+    asyncData({ store, route }){
+        return store.dispatch('getNewSongsAction')
+    },
     data(){
         return {
             banner: [],
-            songList: []
+            //songList: []
+        }
+    },
+    computed:{
+        songList () {
+            return this.$store.state.newSongs;
         }
     },
     components:{songList},
     async created(){
-        let {data} = await getNewSongs();
+        /*let {data} = await getNewSongs();
         this.banner = data.banner;
-        this.songList = data.data;
+        this.songList = data.data;*/
     }
 }
 </script>

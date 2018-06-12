@@ -3,15 +3,29 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-let store = new Vuex.Store({
-  state:{
-    isLoading: true
-  },
-  mutations: {
-    changeLoading(state,loading){
-      state.isLoading = loading;
-    }
-  }
-})
+import {getNewSongs} from '@/server'
 
-export default store;
+export default  () => {
+  return new Vuex.Store({
+    state:{
+      isLoading: true,
+      newSongs:[]
+    },
+    mutations: {
+      changeLoading(state,loading){
+        state.isLoading = loading;
+      },
+      changeNewSongs(state){
+  
+      }
+    },
+    actions:{
+      getNewSongsAction(){
+        console.log('gogo')
+        return getNewSongs().then((data) => {
+          console.log(data);
+        })
+      }
+    }
+  })
+}
