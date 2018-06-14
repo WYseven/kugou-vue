@@ -5,7 +5,6 @@ let Rank = () => import('@/views/rank/rank')
 let Plist = () => import('@/views/plist/plist')
 let Singer = () => import('@/views/singer/singer')
 
-
 export let routes = [
   {
     path: '/',
@@ -13,7 +12,7 @@ export let routes = [
     name: 'NewSong',
     components: {
       navBar: NavBar,
-      default: NewSong
+      default:NewSong
     }
   },
   {

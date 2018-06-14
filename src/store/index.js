@@ -8,7 +8,7 @@ import {getNewSongs} from '@/server'
 export default  () => {
   return new Vuex.Store({
     state:{
-      isLoading: true,
+      isLoading: false,
       newSongs:[]
     },
     mutations: {
@@ -21,10 +21,9 @@ export default  () => {
     },
     actions:{
       getNewSongsAction(){
-        console.log('gogo')
         return getNewSongs().then((data) => {
-          console.log(data);
-        })
+          //console.log(data)
+        });
       }
     }
   })

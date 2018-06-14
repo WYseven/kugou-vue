@@ -14,7 +14,7 @@ export default (context) => {
       return reject({ url: fullPath })
     }
     router.push(context.url);
-
+    console.log('111111111111',context.url)
     router.onReady(() => {
       // 访问路径，可定匹配到组件
       let matchedComponents = router.getMatchedComponents();
@@ -23,8 +23,8 @@ export default (context) => {
       }
       // 对所有匹配的路由组件调用 `asyncData()`
       Promise.all(matchedComponents.map(Component => {
-        if (Component.asyncData) {
-          return Component.asyncData({
+        if (Component.abc) {
+          return Component.abc({
             store,
             route: router.currentRoute
           })
@@ -36,7 +36,7 @@ export default (context) => {
         // 并且 `template` 选项用于 renderer 时，
         // 状态将自动序列化为 `window.__INITIAL_STATE__`，并注入 HTML。
         context.state = store.state
-        
+        console.log('2222222222221111111')
         resolve(app)
       }).catch(reject);
     }, reject)

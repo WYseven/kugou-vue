@@ -2,13 +2,14 @@ import axios from 'axios'
 import store from '@/store'
 import { Indicator } from 'mint-ui';
 let oneLeve = axios.create({
+  baseURL:'http://localhost:5000/',
   responseType: 'json',
   transformRequest(data){
-    store.commit('changeLoading', true)
+    //store.commit('changeLoading', true)
     return data;
   },
   transformResponse(data){
-    store.commit('changeLoading',false)
+    //store.commit('changeLoading',false)
     if(!data) return;
     let o = {}
     if(data.list) {

@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Search from '@/views/search/search'
-import gotoBack from '@/components/gotoBack/gotoback'
+/*import Search from '@/views/search/search'
+import gotoBack from '@/components/gotoBack/gotoback'*/
 
 import { routes } from './routes'
 Vue.use(Router)
@@ -12,7 +12,7 @@ export default () => {
     mode: 'history',
     routes: [
       ...routes,
-      {
+      /*{
         path: '/Search',
         name: 'Search',
         components: {
@@ -31,7 +31,7 @@ export default () => {
             }
           }
         ]
-      }
+      }*/
     ]
   })
 }
