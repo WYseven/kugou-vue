@@ -6,7 +6,25 @@ const path = require('path');
 const Mfs = require('memory-fs')
 const axios = require('axios')
 
-module.exports = (cb) => {
+module.exports = (app, templatePath, cb) => {
+
+  let bundle
+  let template
+  let clientManifest
+
+  let ready
+  const readyPromise = new Promise(r => { ready = r })
+  const update = () => {
+    if (bundle && clientManifest) {
+      ready()
+      cb(bundle, {
+        template,
+        clientManifest:clientManifest.data
+      })
+    }
+  }
+
+  template = fs.readFileSync(templatePath, 'utf-8')
 
   const webpackComplier = webpack(serverConf);
 
@@ -26,18 +44,21 @@ module.exports = (cb) => {
       'vue-ssr-server-bundle.json'
     )
 
-    let serverBundle = JSON.parse(mfs.readFileSync(serverBundlePath, "utf-8"))
+    bundle = JSON.parse(mfs.readFileSync(serverBundlePath, "utf-8"))
 
     //console.log(serverBundle)
 
     // client Bundle json文件
-    let clientBundle = await axios.get('http://127.0.0.1:8081/vue-ssr-client-manifest.json')
+    clientManifest = await axios.get('http://127.0.0.1:8081/vue-ssr-client-manifest.json')
 
     // 模板
 
-    let template = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf-8');
+    //let template = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf-8');
 
-    cb(serverBundle, clientBundle, template)
+    //cb(serverBundle, clientBundle, template)
+
+    update();
 
   })
+  return readyPromise;
 }

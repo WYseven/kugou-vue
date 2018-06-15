@@ -39,7 +39,7 @@ module.exports = merge(base, {
     }),
     isProduction
     // 确保添加了此插件！
-    ? [new ExtractTextPlugin({ filename: 'common.[chunkhash].css' })]
+    ? new ExtractTextPlugin({ filename: 'common.[chunkhash].css' })
     : [],
     new vueSSRServerPlugin()
   ]
