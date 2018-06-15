@@ -9,20 +9,22 @@ export default  () => {
   return new Vuex.Store({
     state:{
       isLoading: false,
-      newSongs:[]
+      songList:[]
     },
     mutations: {
       changeLoading(state,loading){
         state.isLoading = loading;
       },
-      changeNewSongs(state){
-  
+      changeNewSongs(state,playlod){
+        state.songList = playlod.list;
       }
     },
     actions:{
-      getNewSongsAction(){
-        return getNewSongs().then((data) => {
-          //console.log(data)
+      getNewSongsAction({commit}){
+        return getNewSongs().then(({data}) => {
+          commit('changeNewSongs',{
+            list:data
+          })
         });
       }
     }

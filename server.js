@@ -13,9 +13,12 @@ if (typeof window === 'undefined') {
   global.navigator = window.navigator
 }
 app.use((req,res,next) => {
-  console.log('有人发起了请求',req.url,req.query)
-  next()
+  if(req.url === '/favicon.ico'){
+    return;
+  }
+  next();
 })
+// 代理请求
 var apiProxy = proxy('/proxy', {
   target: "http://m.kugou.com",
   "secure": false,
@@ -27,8 +30,18 @@ var apiProxy = proxy('/proxy', {
     "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
   }
 });
+
+const isProd = process.env.NODE_ENV === 'production'
+const useMicroCache = process.env.MICRO_CACHE !== 'false'
+const serverInfo =
+  `express/${require('express/package.json').version} ` +
+  `vue-server-renderer/${require('vue-server-renderer/package.json').version}`;
+
+
+var cacheHtml = {};
 app.use('/proxy', apiProxy);
 app.get('*', async (req, res) => {
+  
   res.status(200);
   res.setHeader('Content-Type', 'text/html;charset=utf-8;')
 
@@ -38,9 +51,14 @@ app.get('*', async (req, res) => {
       clientManifest: clientBundle.data,
       runInNewContext: false
     })
+    
+    if(cacheHtml[req.url]){
+      res.end(cacheHtml[req.url])
+    }
 
     renderer.renderToString({ url: req.url }).then((html) => {
       res.end(html)
+      cacheHtml[req.url] = html;
     }).catch(err => console.log(err))
   })
 

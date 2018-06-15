@@ -4,7 +4,7 @@ import createStore from './store'
 import App from './app.vue'
 import { sync } from 'vuex-router-sync'
 import MintUI from 'mint-ui'
-//import 'mint-ui/lib/style.css'
+import 'mint-ui/lib/style.css'
 
 Vue.use(MintUI)
 

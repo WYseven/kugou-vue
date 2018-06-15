@@ -7,8 +7,9 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js",
-    "server": "node server.js"
+    "build": "node build/build.js && npm run server:build",
+    "server": "node server.js",
+    "server:build": "node build/build-server.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -32,6 +33,7 @@
     "babel-preset-stage-2": "^6.22.0",
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.0",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^3.0.0",
