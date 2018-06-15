@@ -29,7 +29,7 @@ export default {
   }
 }
 </script>
-<style src='mint-ui/lib/style.css'> </style>
+
 
 <style>
   body {

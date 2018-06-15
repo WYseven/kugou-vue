@@ -15,6 +15,15 @@ module.exports = merge(base, {
   externals: [webpackNodeExternals({
     whitelist: /\.css$/
   })],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        // 重要：使用 vue-style-loader 替代 style-loader
+        use: ['vue-style-loader', 'css-loader']
+      }
+    ]
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"devlopment"',
