@@ -2,7 +2,7 @@
   <div id="app">
     <mt-header fixed class="kugou-header">
         <router-link class="logo" to="/" slot="left">
-            <img src="http://m.kugou.com/v3/static/images/index/logo.png" />
+            <img src="@/assets/music.png" />
         </router-link>
         <mt-button @click="gotoSearch" icon="search" slot="right"></mt-button>
     </mt-header>
@@ -37,7 +37,7 @@ export default {
      background: #f5f5f5;
   }
   .logo img{
-      width: 2.5rem;
+      width: 1.5rem;
       display: inline-block;
       vertical-align: middle;
   }
