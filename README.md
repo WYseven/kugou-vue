@@ -7,6 +7,7 @@
 - 克隆项目到本地
 
 > git clone git@github.com:WYseven/kugou-vue.git
+
 > cd kugou-vue
 
 - 使用命令启动项目：
