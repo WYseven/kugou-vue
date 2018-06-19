@@ -13,7 +13,7 @@
 
 > npm run dev 
 
-之后在浏览器打开 **http://localhost:8081/**预览。
+之后在浏览器打开 **http://localhost:8081/** 预览。
 
 - 启动ssr渲染预览项目
 
@@ -44,7 +44,7 @@ proxyTable: {
           "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Mobile Safari/537.36"
         }
 ```
-以上的规则为当在发送请求时，地址写上**/proxy/plist/index**时候，会匹配到以上设置的代理规则，会被代理到 **target: "http://m.kugou.com"** 访问，在 **pathRewrite**设置了** "^/proxy": "" **为空，就意味着访问的地址为 ** http://localhost:8080/proxy/plist/index** 时，代理访问的真实地址为
+以上的规则为当在发送请求时，地址写上 **/proxy/plist/index** 时候，会匹配到以上设置的代理规则，会被代理到 **target: "http://m.kugou.com"** 访问，在 **pathRewrite**设置了 ** "^/proxy": "" ** 为空，就意味着访问的地址为 ** http://localhost:8080/proxy/plist/index** 时，代理访问的真实地址为
 **http://m.kugou.com/plist/index**
 
 项目功能：
