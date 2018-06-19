@@ -21,7 +21,6 @@
     },
     methods:{
       gotoRoute(name){
-        console.log(name)
         this.$router.push({
           name: name
         })

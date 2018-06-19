@@ -20,12 +20,8 @@ export default {
   name: 'App',
   methods: {
       gotoSearch(){
-          console.log(123)
           this.$router.push('/search')
       }
-  },
-  created(){
-      console.log(this.$store)
   }
 }
 </script>

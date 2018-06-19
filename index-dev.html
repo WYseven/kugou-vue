@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>{{title}}</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <style lang="">
       body{
         background: #f5f5f5;
@@ -33,7 +33,6 @@
   </head>
   <body>
     <div id="app">
-      <!--vue-ssr-outlet-->
       <%= htmlWebpackPlugin.options.loading %>
       <!-- built files will be auto injected -->
     </div>

@@ -34,7 +34,6 @@ import {searchHot} from '@/server/jsonp'
     },
     async created(){
       let data = await searchHot();
-      console.log(data)
     }
   }
 </script>
