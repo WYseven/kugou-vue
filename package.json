@@ -8,8 +8,11 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js && npm run server:build",
-    "server": "node server.js",
-    "server:build": "node build/build-server.js"
+    "build:test": "cross-env NODE_TEST=test node build/build.js && npm run server:build:test",
+    "server": " node server.js",
+    "server:build": "cross-env NODE_ENV=production node build/build-server.js",
+    "server:build:test": "cross-env NODE_ENV=production node build/build-server.js",
+    "server:test": "cross-env PORT=5000 NODE_ENV=production node server.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

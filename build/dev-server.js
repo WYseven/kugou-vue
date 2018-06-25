@@ -46,11 +46,9 @@ module.exports = (app, templatePath, cb) => {
 
     bundle = JSON.parse(mfs.readFileSync(serverBundlePath, "utf-8"))
 
-    //console.log(serverBundle)
-
     // client Bundle json文件
-    clientManifest = await axios.get('http://127.0.0.1:8081/vue-ssr-client-manifest.json')
-
+    clientManifest = await axios.get('http://127.0.0.1:8080/vue-ssr-client-manifest.json')
+    
     // 模板
 
     //let template = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf-8');
@@ -58,7 +56,6 @@ module.exports = (app, templatePath, cb) => {
     //cb(serverBundle, clientBundle, template)
 
     update();
-
   })
   return readyPromise;
 }

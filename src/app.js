@@ -9,8 +9,8 @@ import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
 
 
-Vue.filter("filterImgUrl",(value) => {
-  return value.replace('{size}', 240)
+Vue.filter("filterImgUrl", (value, size = 240) => {
+  return value.replace('{size}', size)
 })
 
 // 实例 每次请求都会创建新的实例

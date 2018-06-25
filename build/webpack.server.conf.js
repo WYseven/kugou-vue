@@ -5,7 +5,7 @@ const vueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 const webpackNodeExternals = require('webpack-node-externals')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const isProduction = true; //process.env.NODE_ENV === 'production'
+const isProduction = process.env.NODE_ENV === 'production'
 module.exports = merge(base, {
   target: 'node',
   devtool: 'source-map',
@@ -35,6 +35,7 @@ module.exports = merge(base, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"devlopment"',
+      'process.env.ssr_ENV': '"ssr"',
       'process.env.VUE_ENV': '"server"'
     }),
     isProduction

@@ -20,7 +20,6 @@ export default {
   name: 'App',
   methods: {
       gotoSearch(){
-          console.log(123)
           this.$router.push('/search')
       }
   },
@@ -50,7 +49,7 @@ export default {
       z-index: 999;
   }
   #app .navbar {
-    top: .8rem;
+    top: .7rem;
     padding: .1rem 0 0 0;
   }
   .content {

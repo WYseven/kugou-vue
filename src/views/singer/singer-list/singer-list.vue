@@ -22,7 +22,6 @@
     },
     methods:{
       singerSongs(item){
-        console.log(item.singerid)
         this.$router.push({
           name: 'singer_songs',
           params:{

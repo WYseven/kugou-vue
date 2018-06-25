@@ -16,7 +16,8 @@ if (typeof window === 'undefined') {
   global.navigator = window.navigator
 }
 
-const isProd = true //process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production'
+
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
 const serverInfo =
   `express/${require('express/package.json').version} ` +
@@ -40,7 +41,7 @@ app.use('/proxy', apiProxy);
 
 function createRenderer (bundle, options) {
   // https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer
-  return createBundleRenderer(bundle, Object.assign(options, {
+   let abc = createBundleRenderer(bundle, Object.assign(options, {
     // for component caching
     cache: LRU({
       max: 1000,
@@ -51,6 +52,7 @@ function createRenderer (bundle, options) {
     // recommended for performance
     runInNewContext: false
   }))
+  return abc;
 }
 
 let renderer
@@ -118,15 +120,17 @@ function render (req, res) {
       console.error(err.stack)
     }
   }
-
+  
   const context = {
     title: '我的音乐库', // default title
+    loading: false,
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {
     if (err) {
       return handleError(err)
     }
+   
     res.send(html)
     if (!isProd) {
       console.log(`whole request: ${Date.now() - s}ms`)

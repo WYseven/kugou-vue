@@ -1,7 +1,19 @@
 import axios from 'axios'
 import { Indicator } from 'mint-ui';
+
+let baseURL = '';
+// 
+if (process.env.ssr_ENV === 'ssr' || process.env.NODE_TEST ==='test'){
+  baseURL = 'http://localhost:3000/'
+} else if (process.env.VUE_ENV === 'production'){
+  baseURL = 'http://kssr.wykiss.cn/'
+}
+
+console.log(123,baseURL)
+
 let oneLeve = axios.create({
-  //baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:8081/' : 'http://kssr.wykiss.cn/',
+  baseURL: baseURL,
+  //baseURL: 'http://localhost:5000/',
   responseType: 'json',
   transformRequest(data){
     return data;

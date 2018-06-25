@@ -5,6 +5,7 @@ let Rank = () => import('@/views/rank/rank')
 let Plist = () => import('@/views/plist/plist')
 let Singer = () => import('@/views/singer/singer')
 let SingerList = () => import('@/views/singer/singer-list/singer-list')
+let SingerSong = () => import('@/views/singer/singer-song/singer-song')
 
 import gotoBack from '@/components/gotoBack/gotoback'
 
@@ -62,8 +63,11 @@ export let routes = [
     path: '/singer/songs/:id',
     name: 'singer_songs',
     components: {
-      navBar: gotoBack,
-      default: SingerList
+      navBar: {
+        components: { gotoBack},
+        template: '<gotoBack />'
+      },
+      default: SingerSong
     },
     render: false
   },
