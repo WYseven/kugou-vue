@@ -3,6 +3,7 @@
       <mt-tab-item 
         :id="item.path" 
         v-for="item in routes" 
+        v-if="item.render"
         :key="item.path"
         @click.native="gotoRoute(item.name)"
       >

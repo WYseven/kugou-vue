@@ -9,7 +9,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: ' http://127.0.0.1:8081/',
+    assetsPublicPath: '/', //' http://127.0.0.1:8081/',
     proxyTable: {
       "/proxy/": {
         target: "http://m.kugou.com",

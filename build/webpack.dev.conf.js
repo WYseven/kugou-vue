@@ -32,7 +32,7 @@ let loading = `<div class="init-loading">
   </svg>
 </div>
 </div>`
-
+console.log(path.posix.join(config.dev.assetsPublicPath, 'index.html'))
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })

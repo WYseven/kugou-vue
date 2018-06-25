@@ -2,7 +2,12 @@
   <div class="singer">
     <mt-cell 
       class='song-cell singer-song-cell' 
-      v-for="item in singers" :key="item.classid" :title="item.classname"  is-link></mt-cell>
+      v-for="item in singers" 
+      :key="item.classid" 
+      :title="item.classname"  
+      is-link
+      @click.native="gotoSingerList(item)"
+    ></mt-cell>
   </div>
 </template>
 <script>
@@ -16,6 +21,16 @@
     async created(){
       let {data} = await getSingers();
       this.singers = data.data;
+    },
+    methods:{
+      gotoSingerList(item){
+        this.$router.push({
+          name: 'singer_list',
+          params: {
+            id: item.classid
+          }
+        })
+      }
     }
   }
 </script>

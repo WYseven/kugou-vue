@@ -32,10 +32,7 @@
     width: 2rem;
     height: 2rem;
   }
-  .plist-cell {
-    padding: 5px 0;
 
-  }
   .song-cell {
     padding: 0.2rem 0;
   }

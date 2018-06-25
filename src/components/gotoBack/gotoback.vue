@@ -1,9 +1,8 @@
 <template>
   <mt-header fixed class="go-back-header" title="搜索">
-    hello
-    <router-link to="/" slot="left">
-      <mt-button icon="back"></mt-button>
-    </router-link>
+    <div to="/" slot="left">
+      <mt-button icon="back" @click.native="()=>{$router.go(-1)}"></mt-button>
+    </div>
   </mt-header>
 </template>
 <style scoped>
