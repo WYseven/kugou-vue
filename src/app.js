@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import createRouter from './router'
 import createStore from './store'
-import App from './app.vue'
+import App from './App.vue'
 import { sync } from 'vuex-router-sync'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
