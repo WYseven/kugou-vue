@@ -96,7 +96,7 @@ import {searchHot,searchByKeyword} from '@/server/jsonp'
     overflow: hidden;
   }
   .search-input-box {
-    -height: .52rem;
+    height: .92rem;
     flex: 2;
   }
   .search a{

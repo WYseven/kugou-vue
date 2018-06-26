@@ -6,7 +6,7 @@
   </mt-header>
 </template>
 <style scoped>
-.go-back-header {
+#app .go-back-header {
   background: #fff;
   box-shadow: 0 0.0785rem 0.0785rem 0 #f4f4f4;
   color: #333;

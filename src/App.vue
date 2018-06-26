@@ -11,11 +11,15 @@
         <mt-spinner v-show="$store.state.isLoading" type="triple-bounce"></mt-spinner>
         <router-view></router-view>
     </div>
+
+    <play-bottom></play-bottom>
+
   </div>
 </template>
 
 <script>
 import Loading from '@/components/loading'
+import playBottom from '@/components/play-bottom/play-bottom'
 export default {
   name: 'App',
   methods: {
@@ -23,9 +27,7 @@ export default {
           this.$router.push('/search')
       }
   },
-  created(){
-      
-  }
+  components: {playBottom}
 }
 </script>
 
@@ -34,6 +36,12 @@ export default {
   body {
      margin: 0;
      background: #f5f5f5;
+  }
+  p {
+      margin: 0;
+  }
+  button{
+      padding: 0;
   }
   .logo img{
       width: 1.5rem;
@@ -45,7 +53,7 @@ export default {
     line-height: 3rem;
     
   }
-  .mint-header.is-fixed {
+  #app .mint-header.is-fixed {
       z-index: 999;
   }
   #app .navbar {

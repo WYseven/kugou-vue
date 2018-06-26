@@ -4,12 +4,10 @@ import { Indicator } from 'mint-ui';
 let baseURL = '';
 // 
 if (process.env.ssr_ENV === 'ssr' || process.env.NODE_TEST ==='test'){
-  baseURL = 'http://localhost:3000/'
+  baseURL = 'http://localhost:5000/'
 } else if (process.env.VUE_ENV === 'production'){
   baseURL = 'http://kssr.wykiss.cn/'
 }
-
-console.log(123,baseURL)
 
 let oneLeve = axios.create({
   baseURL: baseURL,

@@ -26,14 +26,14 @@ export default {
     },
     computed:{
         songList () {
-            return this.$store.state.songList.data;
+            return this.$store.state.newSongs.data;
         },
         banner () {
-            return this.$store.state.songList.banner;
+            return this.$store.state.newSongs.banner;
         }
     },
     mounted(){
-        if(!this.$store.state.songList.data){
+        if(!this.$store.state.newSongs.data){
             this.$store.dispatch('getNewSongsAction')
         }
         

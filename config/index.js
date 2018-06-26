@@ -3,12 +3,12 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-
+const isProd = process.env.NODE_ENV === 'production'
 module.exports = {
   dev: {
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',//'http://127.0.0.1:8080/', //' http://127.0.0.1:8081/',
+    assetsPublicPath: isProd ? '/' : 'http://127.0.0.1:8080/',//'http://127.0.0.1:8080/', //' http://127.0.0.1:8081/',
     proxyTable: {
       "/proxy/": {
         target: "http://m.kugou.com",
