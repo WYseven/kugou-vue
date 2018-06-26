@@ -4,7 +4,6 @@
 
 const path = require('path')
 const isProd = process.env.NODE_ENV === 'production'
-console.log(isProd)
 module.exports = {
   dev: {
     // Paths
