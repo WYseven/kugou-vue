@@ -61,9 +61,6 @@ export default {
     top: .7rem;
     padding: .1rem 0 0 0;
   }
-  .content {
-    padding-top: 2rem;
-  }
 
   .content .song-cell {
     border-bottom: 1px solid #e5e5e5;

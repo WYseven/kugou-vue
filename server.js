@@ -16,8 +16,7 @@ if (typeof window === 'undefined') {
   global.navigator = window.navigator
 }
 
-const isProd = process.env.NODE_ENV === 'production'
-
+const isProd = true;//process.env.NODE_ENV === 'production'
 const useMicroCache = process.env.MICRO_CACHE !== 'false'
 const serverInfo =
   `express/${require('express/package.json').version} ` +
