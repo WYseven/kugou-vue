@@ -8,7 +8,7 @@ vue-kugou-iview写srr前的备份.zip
 src - 副本
 src2
 upload-cdn.js
-
+ecosystem.config.js
 # Editor directories and files
 .idea
 .vscode

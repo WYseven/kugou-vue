@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <p>测试</p>
     <mt-header fixed class="kugou-header">
         <router-link class="logo" to="/" slot="left">
             <img src="@/assets/music.png" />
