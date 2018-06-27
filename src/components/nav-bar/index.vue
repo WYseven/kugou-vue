@@ -1,5 +1,5 @@
 <template>
-  <mt-navbar fixed v-model='selected' >
+  <mt-navbar v-model='selected' >
       <mt-tab-item 
         :id="item.path" 
         v-for="item in routes" 

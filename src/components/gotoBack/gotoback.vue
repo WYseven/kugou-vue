@@ -1,5 +1,5 @@
 <template>
-  <mt-header fixed class="go-back-header" title="搜索">
+  <mt-header class="go-back-header" title="搜索">
     <div slot="left">
       <mt-button icon="back" @click.native="()=>{$router.go(-1)}"></mt-button>
     </div>

@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <p>测试</p>
-    <mt-header fixed class="kugou-header">
-        <router-link class="logo" to="/" slot="left">
-            <img src="@/assets/music.png" />
-        </router-link>
-        <mt-button @click="gotoSearch" icon="search" slot="right"></mt-button>
-    </mt-header>
-    <router-view class="navbar" name="navBar"></router-view>
+    <div class="header-box">
+        <mt-header class="kugou-header">
+            <router-link class="logo" to="/" slot="left">
+                <img src="@/assets/music.png" />
+            </router-link>
+            <mt-button @click="gotoSearch" icon="search" slot="right"></mt-button>
+        </mt-header>
+        <router-view class="navbar" name="navBar"></router-view>
+    </div>
     <div class="content">
         <mt-spinner v-show="$store.state.isLoading" type="triple-bounce"></mt-spinner>
         <router-view></router-view>
@@ -32,7 +33,6 @@ export default {
 }
 </script>
 
-
 <style>
   body {
      margin: 0;
@@ -43,6 +43,12 @@ export default {
   }
   button{
       padding: 0;
+  }
+  .header-box {
+      width: 100%;
+      z-index: 10;
+      position: fixed;
+      background:#fff;
   }
   .logo img{
       width: 1.5rem;
@@ -57,12 +63,8 @@ export default {
   #app .mint-header.is-fixed {
       z-index: 999;
   }
-  #app .navbar {
-    top: .7rem;
-    padding: .1rem 0 0 0;
-  }
   .content {
-    padding-top: .7rem;
+    padding-top: 2rem;
   }
 
   .content .song-cell {
