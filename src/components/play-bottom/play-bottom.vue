@@ -1,23 +1,24 @@
 <template>
-  <div class="play-bottom" :style="{bottom: bottom}">
-    <div class="play-left">
-      <img :src="songInfo.imgUrl | filterImgUrl" alt="">
-      <p>
-        <span>{{songInfo.songName}}</span>
-        <span>{{songInfo.singerName}}</span>
-      </p>
+  <div>
+    <div class="play-bottom" :style="{bottom: bottom}">
+      <div class="play-left" @touchstart="showPlayer">
+        <img :src="songInfo.imgUrl | filterImgUrl" alt="">
+        <p>
+          <span>{{songInfo.songName}}</span>
+          <span>{{songInfo.singerName}}</span>
+        </p>
+      </div>
+      <div class="play-right">
+        <div @touchstart="prev" class="iconfont  icon-audio_last_step prev-song"></div>
+        <div
+          @touchstart="playOrpause" 
+          class="iconfont play-song"
+          :class="{'icon-bofang': buttonValue === '播放','icon-zanting': buttonValue === '暂停'}"
+        ></div>
+        <div @touchstart="next" class="iconfont  icon-audio_next_step next-song"></div>      
+      </div>
     </div>
-    <div class="play-right">
-
-      <div @click="prev" class="iconfont  icon-audio_last_step prev-song"></div>
-      <div
-        @click="playOrpause" 
-        class="iconfont play-song"
-        :class="{'icon-bofang': buttonValue === '播放','icon-zanting': buttonValue === '暂停'}"
-      ></div>
-      <div @click="next" class="iconfont  icon-audio_next_step next-song"></div>      
-    </div>
-    <audio ref="audio" preload :src="url"></audio>
+    <player :url="url" :top.sync="top"></player>
   </div>
 </template>
 <script src="./index.js"></script>

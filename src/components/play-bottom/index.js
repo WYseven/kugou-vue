@@ -1,6 +1,7 @@
 import { mapState } from 'vuex'
 import { getSongMp3 } from '@/server/searchMp3'
 import { MessageBox } from 'mint-ui';
+import Player from '@/views/player/player'
 export default {
   data() {
     return {
@@ -11,9 +12,11 @@ export default {
       songInfo: {
         imgUrl: ''
       },
+      top: '100rem',
       songListCache: {}  // 做一个缓存
     }
   },
+  components: { Player },
   computed: {
     ...mapState(['songList', "hash"])
   },
@@ -32,6 +35,9 @@ export default {
     }
   },
   methods: {
+    showPlayer(){
+      this.top = '0rem';
+    },
     playOrpause() {
       if (this.$refs.audio.paused) {
         this.$refs.audio.play();
@@ -89,9 +95,6 @@ export default {
   },
   mounted() {
     // 加载完成后播放
-    this.$refs.audio.addEventListener('loadeddata', () => {
-      this.$refs.audio.play();
-      this.buttonValue = '暂停'
-    })
+    this.buttonValue = '暂停';
   },
 }

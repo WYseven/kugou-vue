@@ -1,0 +1,189 @@
+body {
+	margin: 0;
+	overflow: hidden;
+}
+ul,li,p {
+	padding: 0;
+	margin: 0;
+}
+h1,h2,h3,h4,h5,h6 {  
+    font-size: 100%;
+    font-weight: 500;
+    margin: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+html{
+	height: 100%;
+}
+body {
+	font-size: 16px;
+	height: 100%;
+}
+
+img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.clear:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.m-main {
+	height: 100%;
+	position: relative;
+
+	box-sizing: border-box;
+	padding: .6rem 0;
+	color: #fff;
+	
+}
+.bg-overlay {
+	background: url(https://y.gtimg.cn/music/photo_new/T002R300x300M000003lFlWa0CwNbA.jpg?max_age=2592000) no-repeat;
+	background-size: cover;
+	filter: blur(10px);
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.play-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.6);
+}
+
+.m-lyric-area {
+	height: 60%;
+	overflow: hidden;
+	position: relative;
+	z-index: 2;
+}
+
+.m-lyric {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.m-lyric-area p {
+	text-align: center;
+	line-height: 1rem;
+	font-size: .3rem;
+	
+}
+
+.m-bottom {
+	width: 100%;
+	position: fixed;
+	bottom: .6rem;
+	left: 0;
+}
+
+.m-progress-box {
+	padding: 0 .2rem;
+	box-sizing: border-box;
+	font-size: .12rem;
+	display: flex;
+	align-items: center;
+
+}
+
+.m-progress {
+	flex:3;
+	height: .44rem;
+	margin: 0 .1rem;
+	display: flex;
+	align-items: center;
+	position: relative;
+	-overflow: hidden;
+}
+
+.m-progress-line {
+	width: 100%;
+	background:#9c8d88;
+	height: .06rem;
+	position: relative;
+}
+
+.m-progress-lineed {
+	width: 0;
+	background: #d23d43;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}
+
+.m-progress-circle {
+	width: .4rem;
+	height: .4rem;
+	background: #fff;
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-radius: 50%;
+	z-index: 2;
+}
+
+.m-play-control {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: .1rem;
+}
+
+.m-play-play-btn {
+	width: 1rem;
+	height: 1rem;
+	background: #c84040;
+	border-radius: 50%;
+	margin: 0px .56rem;
+	
+
+}
+
+.m-play-btn:before {
+	font-size: .4rem;
+	color: #fff;
+	display: block;
+	text-align: center;
+	line-height: .85rem;
+}
+
+.m-play-play-btn {
+	font-size: .8rem;
+	color: #fff;
+	display: block;
+	text-align: center;
+	line-height: 1rem;
+}
+
+.m-play-btn {
+	width: .85rem;
+	height: .85rem;
+	background: #c84040;
+	border-radius: 50%;
+}
+
+.m-lyric .bg {
+	color: red;
+	font-size: .6rem;
+}

@@ -7,7 +7,7 @@
   bottom: 0;
   overflow: hidden;
   transition: .3s;
-  z-index: 999;
+  z-index: 9;
 }
 .play-left {
   width: 60%;

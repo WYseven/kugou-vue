@@ -15,7 +15,6 @@
     </div>
 
     <play-bottom></play-bottom>
-
   </div>
 </template>
 
@@ -27,6 +26,9 @@ export default {
   methods: {
       gotoSearch(){
           this.$router.push('/search')
+      },
+      changeTop(){
+          this.top = '2rem';
       }
   },
   components: {playBottom}
@@ -44,6 +46,12 @@ export default {
   button{
       padding: 0;
   }
+  #app {
+    height: 100%;;
+  }
+    .content {
+        height: 100%;;
+    }
   .header-box {
       width: 100%;
       z-index: 10;

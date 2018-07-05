@@ -15,3 +15,12 @@ export  function formatStringToObject(query){
     return o
   },{})
 }
+export function addZero(n) {
+  return n < 10 ? '0' + n : n;
+}
+// 秒转成分钟
+export function sToM(d) {
+  var m = addZero(parseInt(d / 60));
+  var s = addZero(parseInt(d % 60));
+  return m + ":" + s;
+}

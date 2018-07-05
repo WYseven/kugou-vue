@@ -11,7 +11,7 @@ export default  () => {
       isLoading: false,
       newSongs:[],
       songList:[],
-      hash: ''
+      hash: '',
     },
     mutations: {
       changeLoading(state,loading){
