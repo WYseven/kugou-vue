@@ -36,9 +36,13 @@ export default {
 </script>
 
 <style>
+html {
+    height: 100%;
+}
   body {
      margin: 0;
      background: #f5f5f5;
+     height: 100%;
   }
   p {
       margin: 0;
@@ -50,7 +54,8 @@ export default {
     height: 100%;;
   }
     .content {
-        height: 100%;;
+        height: 100%;
+        overflow: hidden;
     }
   .header-box {
       width: 100%;

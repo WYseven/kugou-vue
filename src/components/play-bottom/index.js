@@ -1,7 +1,7 @@
 import { mapState } from 'vuex'
 import { getSongMp3 } from '@/server/searchMp3'
 import { MessageBox } from 'mint-ui';
-import Player from '@/views/player/player'
+import Player from '@/views/player/player.vue'
 export default {
   data() {
     return {

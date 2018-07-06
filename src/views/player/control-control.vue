@@ -2,7 +2,7 @@
   <div class="m-bottom">
     <div class="m-progress-box">
       <span class="total-time">{{formatTotal}}</span>
-      <div class="m-progress" @touchmove="moveFn"  @touchend="upFn"  @touchstart="moveFn">
+      <div class="m-progress" @touchmove.prevent="moveFn"  @touchend.prevent="upFn"  @touchstart.prevent="moveFn">
         <div class="m-progress-line">
           <div class="m-progress-lineed" :style="{width: xx +'px'}"></div>
         </div>
@@ -90,7 +90,7 @@
 .m-bottom {
 	width: 100%;
 	position: absolute;
-	bottom: 2.4rem;
+	bottom: .5rem;
 	left: 0;
 }
 
