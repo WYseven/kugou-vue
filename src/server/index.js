@@ -46,12 +46,7 @@ let oneLeve = axios.create({
 
 
 let request = (path) => {
-  
-  store().commit('changeLoading',true);
-  return oneLeve(path).then((data) => {
-    store().commit('changeLoading',false);
-    return data;
-  }).catch((e) => {
+  return oneLeve(path).catch((e) => {
     // 网络错误处理
     if(e){
       Indicator.open({

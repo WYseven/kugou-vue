@@ -10,7 +10,6 @@
         <router-view class="navbar" name="navBar"></router-view>
     </div>
     <div class="content">
-        <mt-spinner v-show="$store.state.isLoading" type="triple-bounce"></mt-spinner>
         <router-view></router-view>
     </div>
 

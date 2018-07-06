@@ -20,6 +20,11 @@
           routes
       }
     },
+    watch:{
+      $route(){
+        this.selected = this.$route.path;
+      }
+    },
     methods:{
       gotoRoute(name){
         this.$router.push({
