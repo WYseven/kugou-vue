@@ -13,7 +13,11 @@
       :total-time="totalTime" 
       :current="currentTime" 
       :url="url"
+      :button-value = 'buttonValue'
       @current-change="currentChange"
+      @play-pause="playOrpause"
+      @next-song="() => {$emit('next-song')}"
+      @prev-song="() => {$emit('prev-song')}"
     ></player-control>
   </div>
 </template>

@@ -18,6 +18,10 @@ export default {
       default(){
         return {}
       }
+    },
+    buttonValue: { // 控制播放还是暂停
+      type: String,
+      default: '暂停'
     }
   },
   data(){
@@ -43,6 +47,9 @@ export default {
     currentChange(c){
       this.$refs.audio.currentTime = c;
       this.$refs.audio.play();
+    },
+    playOrpause(){
+      this.$emit('play-pause')
     }
   },
   components: { playerControl, lyric },
@@ -54,6 +61,9 @@ export default {
     })
     audio.addEventListener('timeupdate',() => {
       this.currentTime = audio.currentTime;
+    })
+    audio.addEventListener('ended',() => {
+      this.$emit('next-song')
     })
 
     var mMain = document.querySelector('.m-main');

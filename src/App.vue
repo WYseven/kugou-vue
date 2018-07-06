@@ -31,6 +31,9 @@ export default {
           this.top = '2rem';
       }
   },
+  mounted(){
+      
+  },
   components: {playBottom}
 }
 </script>
@@ -54,7 +57,6 @@ html {
     height: 100%;;
   }
     .content {
-        height: 100%;
         overflow: hidden;
     }
   .header-box {

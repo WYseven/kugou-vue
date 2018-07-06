@@ -20,10 +20,6 @@ export default {
         return store.dispatch('getNewSongsAction')
     },
     components:{songList},
-    data(){
-        return {
-        }
-    },
     computed:{
         songList () {
             return this.$store.state.newSongs.data;

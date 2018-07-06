@@ -8,7 +8,7 @@ import {getNewSongs} from '@/server'
 export default  () => {
   return new Vuex.Store({
     state:{
-      isLoading: false,
+      isLoading: true,
       newSongs:[],
       songList:[],
       hash: '',
@@ -29,7 +29,8 @@ export default  () => {
     },
     actions:{
       getNewSongsAction({commit}){
-        return getNewSongs().then(({data}) => {
+        return getNewSongs().then((data) => {
+          console.log(data)
           commit('changeNewSongs',{
             list:data
           })

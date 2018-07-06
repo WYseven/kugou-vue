@@ -3,7 +3,7 @@
   <mt-cell
     class="song-cell" 
     v-for="item in pList" 
-    :key="item.specialid" 
+    :key="uuid(item)" 
     :title="item.specialname"  is-link>
     <div>
       <i class="icon-music"></i>
@@ -19,6 +19,11 @@
     data(){
       return {
         pList:[]
+      }
+    },
+    methods:{
+      uuid(item){
+        return item.suid + Math.random()
       }
     },
     async created(){

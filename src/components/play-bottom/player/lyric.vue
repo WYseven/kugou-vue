@@ -50,7 +50,6 @@
         }
         var t = start > this.num ? -(start-this.num)*this.onePheight : 0;
         this.initIndex = start;
-        console.log(t,start,this.num )
         this.$refs.lyric.style.top = t + 'px';
       }
     },

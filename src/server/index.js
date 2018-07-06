@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Indicator } from 'mint-ui';
+import store from '@/store/'
 
 let baseURL = '';
 // 
@@ -13,11 +14,9 @@ let oneLeve = axios.create({
   baseURL: baseURL,
   //baseURL: 'http://localhost:5000/',
   responseType: 'json',
-  transformRequest(data){
-    return data;
-  },
   transformResponse(data){
     if(!data) return;
+    
     if(typeof data === 'string') data = JSON.parse(data);
     let o = {}
     if(data.list) {
@@ -47,7 +46,12 @@ let oneLeve = axios.create({
 
 
 let request = (path) => {
-  return oneLeve(path).catch((e) => {
+  
+  store().commit('changeLoading',true);
+  return oneLeve(path).then((data) => {
+    store().commit('changeLoading',false);
+    return data;
+  }).catch((e) => {
     // 网络错误处理
     if(e){
       Indicator.open({

@@ -18,7 +18,15 @@
         <div @touchstart="next" class="iconfont  icon-audio_next_step next-song"></div>      
       </div>
     </div>
-    <player :song-info="songInfo" :url="url" :top.sync="top"></player>
+    <player 
+      :song-info="songInfo" 
+      :url="url" 
+      :top.sync="top" 
+      @play-pause="playOrpause"
+      @next-song="next"
+      @prev-song="prev"
+      :button-value="buttonValue"
+    ></player>
   </div>
 </template>
 <script src="./index.js"></script>

@@ -1,7 +1,7 @@
 import { mapState } from 'vuex'
 import { getSongMp3 } from '@/server/searchMp3'
 import { MessageBox } from 'mint-ui';
-import Player from './player/player.vue'
+import Player from '@/views/player/player.vue'
 export default {
   data() {
     return {
@@ -12,7 +12,6 @@ export default {
       songInfo: {
         imgUrl: ''
       },
-      audio: null,
       top: '100rem',
       songListCache: {}  // 做一个缓存
     }
@@ -28,7 +27,7 @@ export default {
 
       if (error === '无版权') {
         MessageBox('提示', '暂无版权播放');
-        this.audio.pause();
+        this.$refs.audio.pause();
         this.buttonValue = '播放'
       } else {
         this.bottom = 0;
@@ -40,11 +39,11 @@ export default {
       this.top = '0rem';
     },
     playOrpause() {
-      if (this.audio.paused) {
-        this.audio.play();
+      if (this.$refs.audio.paused) {
+        this.$refs.audio.play();
         this.buttonValue = '暂停'
       } else {
-        this.audio.pause();
+        this.$refs.audio.pause();
         this.buttonValue = '播放'
       }
 
@@ -97,6 +96,5 @@ export default {
   mounted() {
     // 加载完成后播放
     this.buttonValue = '暂停';
-    this.audio = this.$children[0].$refs.audio;
   },
 }

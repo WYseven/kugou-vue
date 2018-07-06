@@ -11,9 +11,13 @@
       <span class="current-time">{{formatCurrent}}</span>
     </div>
     <div class="m-play-control">
-      <div class="m-play-btn m-play-prev-btn iconfont icon-audio_last_step"></div>
-      <div class="m-play-play-btn iconfont icon-bofang"></div>
-      <div class="m-play-btn iconfont icon-audio_next_step m-play-next-btn"></div>
+      <div class="m-play-btn m-play-prev-btn iconfont icon-audio_last_step" @touchstart="prev"></div>
+      <div 
+        class="m-play-play-btn iconfont" 
+        :class="{'icon-bofang': buttonValue === '播放','icon-zanting': buttonValue === '暂停'}" 
+        @touchstart="playOrpause"
+      ></div>
+      <div class="m-play-btn iconfont icon-audio_next_step m-play-next-btn"  @touchstart="next"></div>
     </div>
   </div>
 </template>
@@ -28,6 +32,10 @@
       current: {
         type: Number,
         default: 0
+      },
+      buttonValue: { // 控制播放还是暂停
+        type: String,
+        default: '暂停'
       }
     },
     data(){
@@ -62,11 +70,20 @@
     methods:{
       moveFn(e){
         this.move = true;
-        this.x = e.changedTouches[0].pageX - this.rectX;
+        this.x = e.changedTouches[0].pageX - this.rectX - 10;
       },
       upFn(){
         this.move = false;
         this.$emit('current-change',this.xx/this.maxX * this.totalTime)
+      },
+      playOrpause(){
+        this.$emit('play-pause');// 控制暂停播放
+      },
+      next(){
+        this.$emit('next-song');// 下一首歌曲
+      },
+      prev(){
+        this.$emit('prev-song');// 上一首歌曲
       }
     },
     mounted() {
@@ -79,7 +96,6 @@
     this.minX = 0;
     // 能够拖动最大距离
     this.maxX = mProgress.clientWidth-mProgressCircle.offsetWidth;
-    console.log(mProgress.clientWidth,mProgressCircle.offsetWidth)
     // 到左边的距离
     this.rectX = mProgress.getBoundingClientRect().left;
     }
@@ -104,7 +120,7 @@
 }
 
 .m-progress {
-	flex:3;
+	width: 7rem;
 	height: .44rem;
 	margin: 0 .1rem;
 	display: flex;
