@@ -16,7 +16,7 @@ let oneLeve = axios.create({
   responseType: 'json',
   transformResponse(data){
     if(!data) return;
-    
+    // 对请求回来的数据做转换的
     if(typeof data === 'string') data = JSON.parse(data);
     let o = {}
     if(data.list) {

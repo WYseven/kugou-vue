@@ -9,8 +9,8 @@ export default  () => {
   return new Vuex.Store({
     state:{
       newSongs:[],
-      songList:[],
-      hash: '',
+      songList:[],  // 播放歌曲列表 做前进后退
+      hash: '', // 点击歌曲要播放的hash值
     },
     mutations: {
       changeLoading(state,loading){
